@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: main-dep
+spec:
+  selector:
+    matchLabels:
+      name: first-pod
+  replicas: 3
+  template:
+    metadata:
+      name: first-pod
+      labels:
+        name: first-pod
+    spec:
+      containers:
+        - image: myyyh/image-1
+          name: first-container
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"
